@@ -1,9 +1,5 @@
-exports.viewProject = function(req,res) {
-    res.render("project");
-};
-
 exports.viewProject = function(req, res){
-    res.render('index', {
+    res.render('project', {
         'projects': [
           { 'name': 'Waiting in Line',
             'image': 'lorempixel.people.1.jpeg',
