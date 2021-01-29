@@ -9,11 +9,18 @@ var path = require('path');
 var handlebars = require('express3-handlebars')
 
 var index = require('./routes/index');
+// Register the URL localhost:3000/rpoject
+//Call the project.viewProject() function when that URL is requested 
+
+var project = require("./routes/project");
+
 var hello = require('./routes/hello');
 // Example route
 // var user = require('./routes/user');
 
 var app = express();
+//app.get("/hello/:userName", hello.view); // call view() in the hello module 
+//        ^^^^^^^^^^^^^^^  Place the URL parameters into the userName variable 
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -38,6 +45,7 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/hello/:userName', hello.view);
+app.get('/project', project.viewProject);
 // Example route
 // app.get('/users', user.list);
 
